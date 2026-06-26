@@ -60,7 +60,6 @@
     pointer-events:none;
     z-index:0;
   }
-  /* زخرفة هندسية إسلامية خفيفة في الخلفية */
   body::after{
     content:"";
     position:fixed; inset:0;
@@ -212,7 +211,7 @@
   }
   .font-size-ctl span{ min-width:24px; text-align:center; color:var(--text); font-weight:700; }
 
-  /* ===== Tabs (sub-nav within tafsir) ===== */
+  /* ===== Tabs ===== */
   .tabs{ display:flex; gap:28px; border-bottom:1px solid var(--border); margin-bottom:26px; flex-wrap:wrap; }
   .tabs button{
     background:none; border:none; color:var(--text-dim);
@@ -268,7 +267,7 @@
   }
   .btn-primary:hover{ background:var(--accent-dim); }
 
-  /* ===== Accordion (القواعد الكلية) ===== */
+  /* ===== Accordion ===== */
   .accordion-item{
     background:var(--surface); border:1px solid var(--border); border-radius:12px;
     margin-bottom:12px; overflow:hidden;
@@ -291,7 +290,7 @@
     padding:28px; text-align:center; color:var(--text-dim); font-size:1.05rem; line-height:2;
   }
 
-  /* ===== Faedah (benefit) cards ===== */
+  /* ===== Faedah cards ===== */
   .filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
   .filter-chip{
     background:var(--surface); border:1px solid var(--border); color:var(--text-dim);
@@ -317,7 +316,6 @@
   .faedah-bottom button{ background:none; border:none; color:var(--text-dim); display:flex; align-items:center; gap:6px; font-size:.85rem; }
   .faedah-bottom button:hover{ color:var(--accent); }
 
-  /* ===== Card delete control (owner only, shown after unlock) ===== */
   .card-admin-row{
     display:flex; gap:8px; margin-top:8px;
   }
@@ -365,10 +363,10 @@
   .modal-actions{ display:flex; gap:10px; margin-top:22px; }
   .btn-secondary{
     flex:1; background:var(--surface-2); border:1px solid var(--border); color:var(--text);
-    padding:12px; border-radius:9px; font-weight:700;
+    padding:12px; border-radius:99px; font-weight:700;
   }
   .btn-confirm{
-    flex:1; background:var(--accent); border:none; color:#fff; padding:12px; border-radius:9px; font-weight:700;
+    flex:1; background:var(--accent); border:none; color:#fff; padding:12px; border-radius:99px; font-weight:700;
   }
   .btn-confirm:hover{ background:var(--accent-dim); }
   .btn-danger{ background:#ef4444; }
@@ -499,7 +497,7 @@
       <h1 class="splash-title">أهلًا وسهلًا بطلابنا الأعزاء 🌿</h1>
       <p class="splash-message">
         نرحب بكل طالب حاضر معنا اليوم في هذه الحلقة المباركة،
-        ونسأل الله أن يجعل هذا المجلس مجلسَ علمٍ وذِكرٍ ينفعكم في دينكم ودنياكم.
+        ونسأل الله أن يجعل هذا مجلسَ علمٍ وذِكرٍ ينفعكم في دينكم ودنياكم.
       </p>
       <p class="splash-dua">
         اللهم علِّمنا ما ينفعنا، وانفعنا بما علَّمتنا،<br>
@@ -547,7 +545,7 @@
         <button id="fontPlus">+</button>
       </div>
       <div class="search-box">
-        <input type="text" id="ayahSearch" placeholder="ابحث عن سورة أو آية...">
+        <input type="text" id="ayahSearch" placeholder="ابحث عن سورة...">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       </div>
       <div class="section-title" style="font-size:1.5rem;"><span class="emoji">📖</span> تفسير السعدي</div>
@@ -564,7 +562,7 @@
         <span style="color:var(--text-dim); font-size:.9rem;">اضغط على السورة لعرض تفسيرها</span>
         <button class="add-btn" data-add="surah">＋ إضافة سورة</button>
       </div>
-      <div class="grid" id="surahGrid"></div>
+      <div class="grid" id="surahGrid">جاري تحميل السور من قاعدة البيانات...</div>
     </div>
 
     <div class="tab-panel" id="tab-rules" style="display:none;">
@@ -572,14 +570,14 @@
         <span style="color:var(--text-dim); font-size:.9rem;">قواعد منهجية في التفسير</span>
         <button class="add-btn" data-add="rule">＋ إضافة قاعدة</button>
       </div>
-      <div id="rulesList"></div>
+      <div id="rulesList">جاري تحميل القواعد...</div>
     </div>
 
     <div class="tab-panel" id="tab-intro" style="display:none;">
       <div class="section-head" style="margin-bottom:18px; justify-content:flex-end;">
         <button class="add-btn" data-add="intro">✎ تعديل المقدمة</button>
       </div>
-      <div class="intro-card" id="introText">جاري التحميل...</div>
+      <div class="intro-card" id="introText">جاري تحميل المقدمة...</div>
     </div>
   </section>
 
@@ -596,7 +594,7 @@
       <span></span>
       <button class="add-btn" data-add="lesson">＋ إضافة درس</button>
     </div>
-    <div class="grid cols-3" id="lessonGrid"></div>
+    <div class="grid cols-3" id="lessonGrid">جاري تحميل الدروس...</div>
   </section>
 
   <!-- ===================== FAEDAH SECTION ===================== -->
@@ -606,7 +604,7 @@
       <div class="section-title"><span class="emoji">🌿</span> الفوائد العلمية</div>
     </div>
     <div class="filters" id="faedahFilters"></div>
-    <div class="faedah-grid" id="faedahGrid"></div>
+    <div class="faedah-grid" id="faedahGrid">جاري تحميل الفوائد...</div>
   </section>
 
 </main>
@@ -651,80 +649,247 @@
 
 <div class="toast" id="toast"></div>
 
-<script>
-/* =========================================================
-   DATA LAYER — persisted to localStorage
-   ========================================================= */
-const STORAGE_KEY = 'noor-alhidaya-data-v1';
-const PASSWORD_KEY = 'noor-alhidaya-password-v1';
-const DEFAULT_PASSWORD = '1234'; // يمكن تغييره من صاحب الموقع عبر متغيّر هنا قبل النشر
+<!-- =========================================================
+     FIREBASE INTEGRATION LAYER (CDN MODULES)
+     ========================================================= -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { 
+  getFirestore, collection, doc, getDocs, getDoc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, query, orderBy 
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-function defaultData(){
-  return {
-    surahs: ['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس'].map(name=>({name, pdfUrl:''})),
-    rules: [
-      { title:'القاعدة الكلية 1: العبرة بعموم اللفظ لا بخصوص السبب', body:'هذه من أهم قواعد التفسير التي تُعين على فهم شمولية النص القرآني لكل زمان ومكان، فالحكم الشرعي المستفاد من الآية يُعمل به على عمومه ولو كان سبب نزولها خاصًا بواقعة معينة.' },
-      { title:'القاعدة الكلية 2: لا اجتهاد مع وجود النص', body:'إذا وُجد نص صريح من القرآن أو السنة في مسألة ما، فلا مجال للاجتهاد أو الرأي في مخالفته، وإنما الاجتهاد يكون في فهم النص وتطبيقه.' },
-      { title:'القاعدة الكلية 3: المشقة تجلب التيسير', body:'من القواعد الفقهية المستخرجة من نصوص الشريعة أن الأحكام تتيسر عند وجود المشقة، رحمة من الله بعباده وتخفيفًا عنهم.' }
-    ],
-    intro: 'هذه المنصة تهدف إلى تيسير العلم الشرعي للجميع، وتجمع بين تفسير القرآن الكريم، وأحكام التجويد، والفوائد العلمية المتنوعة، مع تجنب الحشو والتعقيدات اللفظية والتركيز على ما ينفع طالب العلم في حياته اليومية...',
-    lessons: {
-      theory: [
-        { title:'مخارج الحروف العربية', badge:'درس نظري', pdfUrl:'' },
-        { title:'أحكام الميم الساكنة', badge:'درس نظري', pdfUrl:'' },
-        { title:'أحكام النون الساكنة والتنوين', badge:'درس نظري', pdfUrl:'' }
-      ],
-      practice: [
-        { title:'الحزب 1 - تلاوة تطبيقية', badge:'تطبيق', pdfUrl:'' },
-        { title:'الحزب 2 - تلاوة تطبيقية', badge:'تطبيق', pdfUrl:'' },
-        { title:'الحزب 3 - تلاوة تطبيقية', badge:'تطبيق', pdfUrl:'' }
-      ]
-    },
-    faedahTags: ['دعوة','أخلاق','حديث','تفسير','رقائق','فقه','عقيدة'],
-    faedah: [
-      { tag:'تفسير', text:'من أصول التفسير أن القرآن يفسر بعضه بعضاً، فما أجمل في مكان قد فُصِّل في مكان آخر.' },
-      { tag:'حديث', text:'إنما الأعمال بالنيات وإنما لكل امرئ ما نوى، فالإخلاص للعمل لله هو أساس القبول.' },
-      { tag:'رقائق', text:'الصلاة نور، والصدقة برهان، والصبر ضياء، كلمات جامعة من مشكاة النبوة.' }
-    ]
-  };
-}
+// ⚠️ ضع هنا إعدادات الـ FirebaseConfig الخاصة بك بعد إنشائها في لوحة تحكم غوغل
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
-function loadData(){
-  try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) { const d = defaultData(); saveData(d); return d; }
-    const parsed = JSON.parse(raw);
-    return migrateData(parsed);
-  }catch(e){
-    const d = defaultData(); saveData(d); return d;
-  }
-}
-// يحوّل بيانات محفوظة بنسخة قديمة (قبل دعم روابط PDF) إلى البنية الجديدة
-function migrateData(d){
-  if(Array.isArray(d.surahs)){
-    d.surahs = d.surahs.map(s => typeof s === 'string' ? { name:s, pdfUrl:'' } : { pdfUrl:'', ...s });
-  }
-  if(d.lessons){
-    ['theory','practice'].forEach(type=>{
-      if(Array.isArray(d.lessons[type])){
-        d.lessons[type] = d.lessons[type].map(l => ({ pdfUrl:'', ...l }));
-      }
-    });
-  }
-  return d;
-}
-function saveData(d){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
-}
-function getPassword(){
-  return localStorage.getItem(PASSWORD_KEY) || DEFAULT_PASSWORD;
-}
+// تهيئة الخدمة السحابية
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-let DATA = loadData();
+const DEFAULT_PASSWORD = '1234'; 
 let isUnlocked = false;
+let fontSize = 18;
+let currentLessonType = 'theory';
+let currentFaedahFilter = 'الكل';
+
+// القوائم المحلية التي ستتحدث مباشرة مع السيرفر السحابي
+let localSurahs = [];
+let localRules = [];
+let localLessons = [];
+let localFaedah = [];
+const faedahTags = ['دعوة','أخلاق','حديث','تفسير','رقائق','فقه','عقيدة'];
 
 /* =========================================================
-   TOAST
+   REAL-TIME DATA SYNC FROM CLOUD FIRESTORE
+   ========================================================= */
+
+// 1. الاستماع الحي للسور (مجموعة surahs) مرتبة حسب الاسم أو الإضافة
+onSnapshot(collection(db, "surahs"), (snapshot) => {
+  localSurahs = [];
+  snapshot.forEach(docSnap => {
+    localSurahs.push({ id: docSnap.id, ...docSnap.data() });
+  });
+  renderSurahs(document.getElementById('ayahSearch').value);
+});
+
+// 2. الاستماع الحي للقواعد الكلية (مجموعة rules)
+onSnapshot(collection(db, "rules"), (snapshot) => {
+  localRules = [];
+  snapshot.forEach(docSnap => {
+    localRules.push({ id: docSnap.id, ...docSnap.data() });
+  });
+  renderRules();
+});
+
+// 3. الاستماع الحي للمقدمة (مستند ثابت داخل مجموعة config)
+onSnapshot(doc(db, "config", "introText"), (docSnap) => {
+  if (docSnap.exists()) {
+    document.getElementById('introText').textContent = docSnap.data().text;
+  } else {
+    // نص افتراضي أول مرة فقط في حال لم تنشأ بعد في قاعدة البيانات
+    document.getElementById('introText').textContent = 'هذه المنصة تهدف إلى تيسير العلم الشرعي للجميع، وتجمع بين تفسير القرآن الكريم، وأحكام التجويد، والفوائد العلمية المتنوعة، مع تجنب الحشو والتعقيدات اللفظية والتركيز على ما ينفع طالب العلم في حياته اليومية...';
+  }
+  applyFontSize();
+});
+
+// 4. الاستماع الحي لدروس التجويد (مجموعة lessons)
+onSnapshot(collection(db, "lessons"), (snapshot) => {
+  localLessons = [];
+  snapshot.forEach(docSnap => {
+    localLessons.push({ id: docSnap.id, ...docSnap.data() });
+  });
+  renderLessons(currentLessonType);
+});
+
+// 5. الاستماع الحي للفوائد العلمية (مجموعة faedah)
+onSnapshot(collection(db, "faedah"), (snapshot) => {
+  localFaedah = [];
+  snapshot.forEach(docSnap => {
+    localFaedah.push({ id: docSnap.id, ...docSnap.data() });
+  });
+  renderFaedah();
+});
+
+/* =========================================================
+   UI RENDERING FUNCTIONS
+   ========================================================= */
+function renderSurahs(filter=''){
+  const grid = document.getElementById('surahGrid');
+  grid.innerHTML = '';
+  const list = localSurahs.filter(s => s.name.includes(filter.trim()));
+  if(list.length === 0){
+    grid.innerHTML = '<div class="empty-state">لا توجد نتائج مطابقة لبحثك.</div>';
+    return;
+  }
+  list.forEach((surah)=>{
+    const hasPdf = !!surah.pdfUrl;
+    const card = document.createElement('div');
+    card.className = 'surah-card' + (hasPdf ? ' has-pdf' : '');
+    if(hasPdf) card.title = 'اضغط لفتح ملف PDF الخاص بالسورة';
+    card.innerHTML = `<div>${surah.name}</div>` +
+      (hasPdf ? `<div class="pdf-indicator">📄 PDF</div>` : '') +
+      (isUnlocked ? `
+      <div class="card-admin-row" style="justify-content:center;">
+        <button class="mini-btn edit" data-edit-id="${surah.id}" data-type="surah">✎</button>
+        <button class="mini-btn" data-del-id="${surah.id}" data-type="surah">🗑</button>
+      </div>` : '');
+    if(hasPdf){
+      card.addEventListener('click', (e)=>{
+        if(e.target.closest('.card-admin-row')) return;
+        window.open(surah.pdfUrl, '_blank', 'noopener');
+      });
+    }
+    grid.appendChild(card);
+  });
+}
+document.getElementById('ayahSearch').addEventListener('input', e=> renderSurahs(e.target.value));
+
+function renderRules(){
+  const wrap = document.getElementById('rulesList');
+  wrap.innerHTML = '';
+  if(localRules.length === 0){
+    wrap.innerHTML = '<div class="empty-state">لم تتم إضافة أي قاعدة بعد.</div>';
+    return;
+  }
+  localRules.forEach((rule)=>{
+    const item = document.createElement('div');
+    item.className = 'accordion-item';
+    item.innerHTML = `
+      <div class="accordion-head">
+        <span>${rule.title}</span>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="accordion-body" style="font-size:${fontSize}px;">
+        <p>${rule.body}</p>
+        ${isUnlocked ? `<div class="card-admin-row">
+          <button class="mini-btn edit" data-edit-id="${rule.id}" data-type="rule">✎ تعديل</button>
+          <button class="mini-btn" data-del-id="${rule.id}" data-type="rule">🗑 حذف</button>
+        </div>` : ''}
+      </div>`;
+    item.querySelector('.accordion-head').addEventListener('click', ()=>{
+      item.classList.toggle('open');
+      const body = item.querySelector('.accordion-body');
+      body.style.maxHeight = item.classList.contains('open') ? body.scrollHeight+'px' : '0';
+    });
+    wrap.appendChild(item);
+  });
+}
+
+function renderLessons(type){
+  currentLessonType = type || currentLessonType;
+  const grid = document.getElementById('lessonGrid');
+  grid.innerHTML = '';
+  const list = localLessons.filter(l => l.type === currentLessonType);
+  if(list.length === 0){
+    grid.innerHTML = '<div class="empty-state">لا توجد دروس في هذا التصنيف بعد.</div>';
+    return;
+  }
+  list.forEach((lesson)=>{
+    const card = document.createElement('div');
+    card.className = 'lesson-card';
+    const hasPdf = !!lesson.pdfUrl;
+    card.innerHTML = `
+      <div class="lesson-top">
+        <div class="lesson-icons">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+        </div>
+        <span class="badge">${lesson.badge}</span>
+      </div>
+      <div class="lesson-title">${lesson.title}</div>
+      <div class="lesson-actions">
+        <button class="btn-outline-icon" data-url="${lesson.pdfUrl || ''}" title="فتح ملف PDF">📄</button>
+        <button class="btn-primary" data-url="${lesson.pdfUrl || ''}">عرض الدرس ▶</button>
+      </div>
+      ${isUnlocked ? `<div class="card-admin-row">
+        <button class="mini-btn edit" data-edit-id="${lesson.id}" data-type="lesson">✎ تعديل</button>
+        <button class="mini-btn" data-del-id="${lesson.id}" data-type="lesson">🗑 حذف</button>
+      </div>` : ''}
+    `;
+    card.querySelectorAll('[data-url]').forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        if(hasPdf) window.open(lesson.pdfUrl, '_blank', 'noopener');
+        else toast('لا يوجد ملف PDF مرفق بهذا الدرس بعد');
+      });
+    });
+    grid.appendChild(card);
+  });
+}
+
+function renderFaedahFilters(){
+  const wrap = document.getElementById('faedahFilters');
+  wrap.innerHTML = '';
+  const tags = ['الكل', ...faedahTags];
+  tags.forEach(tag=>{
+    const chip = document.createElement('button');
+    chip.className = 'filter-chip' + (tag === currentFaedahFilter ? ' active' : '');
+    chip.textContent = tag;
+    chip.addEventListener('click', ()=>{ currentFaedahFilter = tag; renderFaedahFilters(); renderFaedah(); });
+    wrap.appendChild(chip);
+  });
+}
+
+function renderFaedah(){
+  const grid = document.getElementById('faedahGrid');
+  grid.innerHTML = '';
+  const list = localFaedah.filter(f => currentFaedahFilter === 'الكل' || f.tag === currentFaedahFilter);
+  if(list.length === 0){
+    grid.innerHTML = '<div class="empty-state">لا توجد فوائد في هذا التصنيف بعد.</div>';
+    return;
+  }
+  list.forEach((item)=>{
+    const card = document.createElement('div');
+    card.className = 'faedah-card';
+    card.innerHTML = `
+      <div class="faedah-top"><span class="faedah-tag">#${item.tag}</span></div>
+      <div class="faedah-text">${item.text}</div>
+      <div class="faedah-bottom">
+        <div class="left">
+          <button title="مشاركة">↗</button>
+          <button title="إرسال">➤</button>
+        </div>
+        <div class="right">
+          <button class="copy-faedah" data-text="${item.text}">نسخ ⧉</button>
+        </div>
+      </div>
+      ${isUnlocked ? `<div class="card-admin-row">
+        <button class="mini-btn edit" data-edit-id="${item.id}" data-type="faedah">✎ تعديل</button>
+        <button class="mini-btn" data-del-id="${item.id}" data-type="faedah">🗑 حذف</button>
+      </div>` : ''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* =========================================================
+   BASIC INTERACTIVE ELEMENTS & SYSTEM CONTROLS
    ========================================================= */
 function toast(msg){
   const t = document.getElementById('toast');
@@ -733,23 +898,14 @@ function toast(msg){
   setTimeout(()=> t.classList.remove('show'), 2200);
 }
 
-/* =========================================================
-   THEME TOGGLE
-   ========================================================= */
 document.getElementById('themeToggle').addEventListener('click', ()=>{
   const body = document.body;
   const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   body.setAttribute('data-theme', next);
   localStorage.setItem('noor-theme', next);
 });
-(function initTheme(){
-  const saved = localStorage.getItem('noor-theme');
-  if(saved) document.body.setAttribute('data-theme', saved);
-})();
+if(localStorage.getItem('noor-theme')) document.body.setAttribute('data-theme', localStorage.getItem('noor-theme'));
 
-/* =========================================================
-   NAV / SECTION SWITCHING
-   ========================================================= */
 document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -776,26 +932,21 @@ document.querySelectorAll('.lesson-type-btn').forEach(btn=>{
   });
 });
 
-/* =========================================================
-   FONT SIZE CONTROL (affects tafsir intro / rules text)
-   ========================================================= */
-let fontSize = 18;
-document.getElementById('fontVal').textContent = fontSize;
+document.getElementById('fontPlus').addEventListener('click', ()=>{ fontSize = Math.min(32, fontSize+1); applyFontSize(); });
+document.getElementById('fontMinus').addEventListener('click', ()=>{ fontSize = Math.max(12, fontSize-1); applyFontSize(); });
 function applyFontSize(){
   document.getElementById('fontVal').textContent = fontSize;
   document.getElementById('introText').style.fontSize = fontSize+'px';
   document.querySelectorAll('.accordion-body').forEach(el=> el.style.fontSize = fontSize+'px');
 }
-document.getElementById('fontPlus').addEventListener('click', ()=>{ fontSize = Math.min(32, fontSize+1); applyFontSize(); });
-document.getElementById('fontMinus').addEventListener('click', ()=>{ fontSize = Math.max(12, fontSize-1); applyFontSize(); });
 
 /* =========================================================
-   LOCK / UNLOCK (password gate)
+   PASSWORD MANAGER & PERMISSIONS
    ========================================================= */
 const pwModal = document.getElementById('pwModal');
 const pwInput = document.getElementById('pwInput');
 const pwError = document.getElementById('pwError');
-let pendingAction = null; // function to run after successful unlock
+let pendingAction = null;
 
 function requireUnlock(action){
   if(isUnlocked){ action(); return; }
@@ -805,24 +956,21 @@ function requireUnlock(action){
   pwModal.classList.add('show');
   setTimeout(()=> pwInput.focus(), 50);
 }
-document.getElementById('pwCancel').addEventListener('click', ()=>{
-  pwModal.classList.remove('show'); pendingAction = null;
-});
+document.getElementById('pwCancel').addEventListener('click', ()=>{ pwModal.classList.remove('show'); pendingAction = null; });
 document.getElementById('pwConfirm').addEventListener('click', tryUnlock);
 pwInput.addEventListener('keydown', e=>{ if(e.key==='Enter') tryUnlock(); });
 
 function tryUnlock(){
-  if(pwInput.value === getPassword()){
+  if(pwInput.value === DEFAULT_PASSWORD){
     isUnlocked = true;
     pwModal.classList.remove('show');
     updateLockUI();
     toast('تم تفعيل وضع التعديل ✓');
     if(pendingAction){ pendingAction(); pendingAction = null; }
-    renderAll(); // re-render to show admin controls
+    refreshUIAdminControls();
   } else {
     pwError.classList.add('show');
-    pwInput.value = '';
-    pwInput.focus();
+    pwInput.value = ''; pwInput.focus();
   }
 }
 function updateLockUI(){
@@ -838,18 +986,22 @@ function updateLockUI(){
 }
 document.getElementById('lockStatus').addEventListener('click', ()=>{
   if(isUnlocked){
-    isUnlocked = false;
-    updateLockUI();
-    toast('تم تسجيل الخروج من وضع التعديل');
-    renderAll();
+    isUnlocked = false; updateLockUI(); refreshUIAdminControls(); toast('تم تسجيل الخروج من وضع التعديل');
   } else {
     requireUnlock(()=>{});
   }
 });
 document.getElementById('lockToggle').addEventListener('click', ()=> document.getElementById('lockStatus').click());
 
+function refreshUIAdminControls(){
+  renderSurahs(document.getElementById('ayahSearch').value);
+  renderRules();
+  renderLessons(currentLessonType);
+  renderFaedah();
+}
+
 /* =========================================================
-   GENERIC FORM MODAL HELPERS
+   GENERIC FORMS GENERATOR & SUBMITTERS
    ========================================================= */
 const formModal = document.getElementById('formModal');
 const formFields = document.getElementById('formFields');
@@ -860,30 +1012,21 @@ function openForm({title, sub, fields, onSubmit, confirmLabel, danger}){
   document.getElementById('formSub').textContent = sub || '';
   formFields.innerHTML = '';
   fields.forEach(f=>{
-    const wrap = document.createElement('div');
-    wrap.className = 'field';
-    const label = document.createElement('label');
-    label.textContent = f.label;
+    const wrap = document.createElement('div'); wrap.className = 'field';
+    const label = document.createElement('label'); label.textContent = f.label;
     wrap.appendChild(label);
     let input;
-    if(f.type === 'textarea'){
-      input = document.createElement('textarea');
-    } else if(f.type === 'select'){
+    if(f.type === 'textarea'){ input = document.createElement('textarea'); }
+    else if(f.type === 'select'){
       input = document.createElement('select');
       (f.options||[]).forEach(opt=>{
-        const o = document.createElement('option');
-        o.value = opt; o.textContent = opt;
-        input.appendChild(o);
+        const o = document.createElement('option'); o.value = opt; o.textContent = opt; input.appendChild(o);
       });
-    } else {
-      input = document.createElement('input');
-      input.type = f.type || 'text';
-    }
+    } else { input = document.createElement('input'); input.type = f.type || 'text'; }
     input.id = 'f_'+f.key;
     if(f.value !== undefined) input.value = f.value;
     if(f.placeholder) input.placeholder = f.placeholder;
-    wrap.appendChild(input);
-    formFields.appendChild(wrap);
+    wrap.appendChild(input); formFields.appendChild(wrap);
   });
   const confirmBtn = document.getElementById('formConfirm');
   confirmBtn.textContent = confirmLabel || 'حفظ';
@@ -892,259 +1035,23 @@ function openForm({title, sub, fields, onSubmit, confirmLabel, danger}){
   formModal.classList.add('show');
 }
 document.getElementById('formCancel').addEventListener('click', ()=> formModal.classList.remove('show'));
-document.getElementById('formConfirm').addEventListener('click', ()=>{
-  if(formSubmitHandler) formSubmitHandler();
-});
+document.getElementById('formConfirm').addEventListener('click', ()=>{ if(formSubmitHandler) formSubmitHandler(); });
 
 /* =========================================================
-   RENDER: SURAHS
+   DATABASE CLOUD CRUD OPERATIONS (ADD / EDIT / DELETE)
    ========================================================= */
-function renderSurahs(filter=''){
-  const grid = document.getElementById('surahGrid');
-  grid.innerHTML = '';
-  const list = DATA.surahs.filter(s => s.name.includes(filter.trim()));
-  if(list.length === 0){
-    grid.innerHTML = '<div class="empty-state">لا توجد نتائج مطابقة لبحثك.</div>';
-    return;
-  }
-  list.forEach((surah)=>{
-    const idx = DATA.surahs.indexOf(surah);
-    const hasPdf = !!surah.pdfUrl;
-    const card = document.createElement('div');
-    card.className = 'surah-card' + (hasPdf ? ' has-pdf' : '');
-    if(hasPdf) card.title = 'اضغط لفتح ملف PDF الخاص بالسورة';
-    card.innerHTML = `<div>${surah.name}</div>` +
-      (hasPdf ? `<div class="pdf-indicator">📄 PDF</div>` : '') +
-      (isUnlocked ? `
-      <div class="card-admin-row" style="justify-content:center;">
-        <button class="mini-btn edit" data-edit-surah="${idx}">✎</button>
-        <button class="mini-btn" data-del-surah="${idx}">🗑</button>
-      </div>` : '');
-    if(hasPdf){
-      card.addEventListener('click', (e)=>{
-        if(e.target.closest('.card-admin-row')) return; // لا تفتح الرابط عند الضغط على أزرار التعديل/الحذف
-        window.open(surah.pdfUrl, '_blank', 'noopener');
-      });
-    }
-    grid.appendChild(card);
-  });
-}
-document.getElementById('ayahSearch').addEventListener('input', e=> renderSurahs(e.target.value));
-
-/* =========================================================
-   RENDER: RULES (accordion)
-   ========================================================= */
-function renderRules(){
-  const wrap = document.getElementById('rulesList');
-  wrap.innerHTML = '';
-  if(DATA.rules.length === 0){
-    wrap.innerHTML = '<div class="empty-state">لم تتم إضافة أي قاعدة بعد.</div>';
-    return;
-  }
-  DATA.rules.forEach((rule, idx)=>{
-    const item = document.createElement('div');
-    item.className = 'accordion-item';
-    item.innerHTML = `
-      <div class="accordion-head">
-        <span>${rule.title}</span>
-        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="accordion-body" style="font-size:${fontSize}px;">
-        <p>${rule.body}</p>
-        ${isUnlocked ? `<div class="card-admin-row">
-          <button class="mini-btn edit" data-edit-rule="${idx}">✎ تعديل</button>
-          <button class="mini-btn" data-del-rule="${idx}">🗑 حذف</button>
-        </div>` : ''}
-      </div>`;
-    item.querySelector('.accordion-head').addEventListener('click', ()=>{
-      item.classList.toggle('open');
-      const body = item.querySelector('.accordion-body');
-      body.style.maxHeight = item.classList.contains('open') ? body.scrollHeight+'px' : '0';
-    });
-    wrap.appendChild(item);
-  });
-}
-
-/* =========================================================
-   RENDER: INTRO
-   ========================================================= */
-function renderIntro(){
-  document.getElementById('introText').textContent = DATA.intro;
-  applyFontSize();
-}
-
-/* =========================================================
-   RENDER: LESSONS
-   ========================================================= */
-let currentLessonType = 'theory';
-function renderLessons(type){
-  currentLessonType = type || currentLessonType;
-  const grid = document.getElementById('lessonGrid');
-  grid.innerHTML = '';
-  const list = DATA.lessons[currentLessonType] || [];
-  if(list.length === 0){
-    grid.innerHTML = '<div class="empty-state">لا توجد دروس في هذا التصنيف بعد.</div>';
-    return;
-  }
-  list.forEach((lesson, idx)=>{
-    const card = document.createElement('div');
-    card.className = 'lesson-card';
-    const hasPdf = !!lesson.pdfUrl;
-    card.innerHTML = `
-      <div class="lesson-top">
-        <div class="lesson-icons">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
-        </div>
-        <span class="badge">${lesson.badge}</span>
-      </div>
-      <div class="lesson-title">${lesson.title}</div>
-      <div class="lesson-actions">
-        <button class="btn-outline-icon" data-open-pdf="${idx}" title="فتح ملف PDF">📄</button>
-        <button class="btn-primary" data-open-pdf="${idx}">عرض الدرس ▶</button>
-      </div>
-      ${isUnlocked ? `<div class="card-admin-row">
-        <button class="mini-btn edit" data-edit-lesson="${idx}">✎ تعديل</button>
-        <button class="mini-btn" data-del-lesson="${idx}">🗑 حذف</button>
-      </div>` : ''}
-    `;
-    card.querySelectorAll('[data-open-pdf]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        if(hasPdf) window.open(lesson.pdfUrl, '_blank', 'noopener');
-        else toast('لا يوجد ملف PDF مرفق بهذا الدرس بعد');
-      });
-    });
-    grid.appendChild(card);
-  });
-}
-
-/* =========================================================
-   RENDER: FAEDAH
-   ========================================================= */
-let currentFaedahFilter = 'الكل';
-function renderFaedahFilters(){
-  const wrap = document.getElementById('faedahFilters');
-  wrap.innerHTML = '';
-  const tags = ['الكل', ...DATA.faedahTags];
-  tags.forEach(tag=>{
-    const chip = document.createElement('button');
-    chip.className = 'filter-chip' + (tag === currentFaedahFilter ? ' active' : '');
-    chip.textContent = tag;
-    chip.addEventListener('click', ()=>{ currentFaedahFilter = tag; renderFaedahFilters(); renderFaedah(); });
-    wrap.appendChild(chip);
-  });
-}
-function renderFaedah(){
-  const grid = document.getElementById('faedahGrid');
-  grid.innerHTML = '';
-  const list = DATA.faedah.filter(f => currentFaedahFilter === 'الكل' || f.tag === currentFaedahFilter);
-  if(list.length === 0){
-    grid.innerHTML = '<div class="empty-state">لا توجد فوائد في هذا التصنيف بعد.</div>';
-    return;
-  }
-  list.forEach((item)=>{
-    const idx = DATA.faedah.indexOf(item);
-    const card = document.createElement('div');
-    card.className = 'faedah-card';
-    card.innerHTML = `
-      <div class="faedah-top"><span class="faedah-tag">#${item.tag}</span></div>
-      <div class="faedah-text">${item.text}</div>
-      <div class="faedah-bottom">
-        <div class="left">
-          <button title="مشاركة">↗</button>
-          <button title="إرسال">➤</button>
-        </div>
-        <div class="right">
-          <button class="copy-faedah" data-copy="${idx}">نسخ ⧉</button>
-        </div>
-      </div>
-      ${isUnlocked ? `<div class="card-admin-row">
-        <button class="mini-btn edit" data-edit-faedah="${idx}">✎ تعديل</button>
-        <button class="mini-btn" data-del-faedah="${idx}">🗑 حذف</button>
-      </div>` : ''}
-    `;
-    grid.appendChild(card);
-  });
-}
-
-/* =========================================================
-   EVENT DELEGATION for dynamic admin buttons (edit/delete)
-   ========================================================= */
-document.addEventListener('click', (e)=>{
-  // Copy faedah text
-  const copyBtn = e.target.closest('[data-copy]');
-  if(copyBtn){
-    const idx = +copyBtn.dataset.copy;
-    navigator.clipboard?.writeText(DATA.faedah[idx].text).then(()=> toast('تم نسخ النص'));
+document.addEventListener('click', async (e)=>{
+  // نسخ الفائدة
+  if(e.target.classList.contains('copy-faedah')){
+    navigator.clipboard?.writeText(e.target.dataset.text).then(()=> toast('تم نسخ نص الفائدة'));
     return;
   }
 
-  // ---- DELETE handlers (require unlock) ----
-  const delSurah = e.target.closest('[data-del-surah]');
-  if(delSurah){
-    requireUnlock(()=>{
-      DATA.surahs.splice(+delSurah.dataset.delSurah, 1);
-      saveData(DATA); renderSurahs(); toast('تم حذف السورة');
-    });
-    return;
-  }
-  const delRule = e.target.closest('[data-del-rule]');
-  if(delRule){
-    requireUnlock(()=>{
-      DATA.rules.splice(+delRule.dataset.delRule, 1);
-      saveData(DATA); renderRules(); toast('تم حذف القاعدة');
-    });
-    return;
-  }
-  const delLesson = e.target.closest('[data-del-lesson]');
-  if(delLesson){
-    requireUnlock(()=>{
-      DATA.lessons[currentLessonType].splice(+delLesson.dataset.delLesson, 1);
-      saveData(DATA); renderLessons(); toast('تم حذف الدرس');
-    });
-    return;
-  }
-  const delFaedah = e.target.closest('[data-del-faedah]');
-  if(delFaedah){
-    requireUnlock(()=>{
-      DATA.faedah.splice(+delFaedah.dataset.delFaedah, 1);
-      saveData(DATA); renderFaedah(); toast('تم حذف الفائدة');
-    });
-    return;
-  }
-
-  // ---- EDIT handlers (require unlock) ----
-  const editSurah = e.target.closest('[data-edit-surah]');
-  if(editSurah){
-    const idx = +editSurah.dataset.editSurah;
-    requireUnlock(()=> openSurahForm(idx));
-    return;
-  }
-  const editRule = e.target.closest('[data-edit-rule]');
-  if(editRule){
-    const idx = +editRule.dataset.editRule;
-    requireUnlock(()=> openRuleForm(idx));
-    return;
-  }
-  const editLesson = e.target.closest('[data-edit-lesson]');
-  if(editLesson){
-    const idx = +editLesson.dataset.editLesson;
-    requireUnlock(()=> openLessonForm(idx));
-    return;
-  }
-  const editFaedah = e.target.closest('[data-edit-faedah]');
-  if(editFaedah){
-    const idx = +editFaedah.dataset.editFaedah;
-    requireUnlock(()=> openFaedahForm(idx));
-    return;
-  }
-
-  // ---- ADD buttons (require unlock) ----
+  // --- زر الإضافة العام ---
   const addBtn = e.target.closest('[data-add]');
   if(addBtn){
     const type = addBtn.dataset.add;
-    requireUnlock(()=>{
+    requireUnlock(()=> {
       if(type==='surah') openSurahForm(null);
       if(type==='rule') openRuleForm(null);
       if(type==='lesson') openLessonForm(null);
@@ -1153,229 +1060,155 @@ document.addEventListener('click', (e)=>{
     });
     return;
   }
+
+  // --- زر التعديل العام ---
+  const editBtn = e.target.closest('.mini-btn.edit');
+  if(editBtn){
+    const id = editBtn.dataset.editId;
+    const type = editBtn.dataset.type;
+    requireUnlock(()=> {
+      if(type==='surah') openSurahForm(id);
+      if(type==='rule') openRuleForm(id);
+      if(type==='lesson') openLessonForm(id);
+      if(type==='faedah') openFaedahForm(id);
+    });
+    return;
+  }
+
+  // --- زر الحذف السحابي العام ---
+  const delBtn = e.target.closest('.mini-btn:not(.edit)');
+  if(delBtn && delBtn.dataset.delId){
+    const id = delBtn.dataset.delId;
+    const type = delBtn.dataset.type;
+    requireUnlock(async () => {
+      if(confirm('هل أنت متأكد من رغبتك في حذف هذا العنصر نهائياً؟')){
+        let colName = type === 'surah' ? 'surahs' : type === 'rule' ? 'rules' : type === 'lesson' ? 'lessons' : 'faedah';
+        await deleteDoc(doc(db, colName, id));
+        toast('تم الحذف بنجاح من قاعدة البيانات السحابية');
+      }
+    });
+    return;
+  }
 });
 
-/* =========================================================
-   FORMS: Surah
-   ========================================================= */
-function openSurahForm(idx){
-  const editing = idx !== null;
-  const surah = editing ? DATA.surahs[idx] : { name:'', pdfUrl:'' };
+// فورام السور
+function openSurahForm(id){
+  const editing = id !== null;
+  const surah = editing ? localSurahs.find(s=>s.id === id) : { name:'', pdfUrl:'' };
   openForm({
     title: editing ? 'تعديل السورة' : 'إضافة سورة جديدة',
-    sub: 'سيظهر اسم السورة في فهرس السور بقسم التفسير. رابط PDF اختياري — إن أُدخل، يفتح عند الضغط على بطاقة السورة.',
     fields: [
       { key:'name', label:'اسم السورة', value: surah.name, placeholder:'مثال: الكهف' },
       { key:'pdfUrl', label:'رابط ملف PDF (اختياري)', type:'url', value: surah.pdfUrl, placeholder:'https://drive.google.com/...' }
     ],
-    confirmLabel: editing ? 'حفظ التعديل' : 'إضافة',
-    onSubmit: ()=>{
+    onSubmit: async ()=>{
       const name = document.getElementById('f_name').value.trim();
       const pdfUrl = document.getElementById('f_pdfUrl').value.trim();
       if(!name) return toast('الرجاء كتابة اسم السورة');
-      const obj = { name, pdfUrl };
-      if(editing) DATA.surahs[idx] = obj; else DATA.surahs.push(obj);
-      saveData(DATA); renderSurahs(); formModal.classList.remove('show');
-      toast(editing ? 'تم تعديل السورة' : 'تمت إضافة السورة');
+      let data = { name, pdfUrl };
+      if(editing) await setDoc(doc(db, "surahs", id), data); else await addDoc(collection(db, "surahs"), data);
+      formModal.classList.remove('show'); toast('تم الحفظ بنجاح سحابياً');
     }
   });
 }
 
-/* =========================================================
-   FORMS: Rule
-   ========================================================= */
-function openRuleForm(idx){
-  const editing = idx !== null;
-  const rule = editing ? DATA.rules[idx] : { title:'', body:'' };
+// فورام القواعد
+function openRuleForm(id){
+  const editing = id !== null;
+  const rule = editing ? localRules.find(r=>r.id === id) : { title:'', body:'' };
   openForm({
     title: editing ? 'تعديل القاعدة الكلية' : 'إضافة قاعدة كلية',
     fields: [
       { key:'title', label:'عنوان القاعدة', value:rule.title, placeholder:'القاعدة الكلية: ...' },
       { key:'body', label:'نص القاعدة وشرحها', type:'textarea', value:rule.body }
     ],
-    confirmLabel: editing ? 'حفظ التعديل' : 'إضافة',
-    onSubmit: ()=>{
+    onSubmit: async ()=>{
       const title = document.getElementById('f_title').value.trim();
       const body = document.getElementById('f_body').value.trim();
-      if(!title || !body) return toast('الرجاء تعبئة جميع الحقول');
-      const obj = { title, body };
-      if(editing) DATA.rules[idx] = obj; else DATA.rules.push(obj);
-      saveData(DATA); renderRules(); formModal.classList.remove('show');
-      toast(editing ? 'تم تعديل القاعدة' : 'تمت إضافة القاعدة');
+      if(!title || !body) return toast('الرجاء تعبئة الحقول');
+      let data = { title, body };
+      if(editing) await setDoc(doc(db, "rules", id), data); else await addDoc(collection(db, "rules"), data);
+      formModal.classList.remove('show'); toast('تم حفظ القاعدة');
     }
   });
 }
 
-/* =========================================================
-   FORMS: Intro
-   ========================================================= */
+// فورام المقدمة
 function openIntroForm(){
+  const currentText = document.getElementById('introText').textContent;
   openForm({
     title: 'تعديل المقدمة',
-    fields: [{ key:'intro', label:'نص المقدمة', type:'textarea', value: DATA.intro }],
-    confirmLabel: 'حفظ',
-    onSubmit: ()=>{
+    fields: [{ key:'intro', label:'نص المقدمة', type:'textarea', value: currentText }],
+    onSubmit: async ()=>{
       const val = document.getElementById('f_intro').value.trim();
       if(!val) return toast('الرجاء كتابة نص المقدمة');
-      DATA.intro = val;
-      saveData(DATA); renderIntro(); formModal.classList.remove('show');
-      toast('تم تعديل المقدمة');
+      await setDoc(doc(db, "config", "introText"), { text: val });
+      formModal.classList.remove('show'); toast('تمت تحديث المقدمة في السحابة');
     }
   });
 }
 
-/* =========================================================
-   FORMS: Lesson
-   ========================================================= */
-function openLessonForm(idx){
-  const editing = idx !== null;
-  const lesson = editing ? DATA.lessons[currentLessonType][idx] : { title:'', badge: currentLessonType==='theory' ? 'درس نظري' : 'تطبيق', pdfUrl:'' };
+// فورام الدروس
+function openLessonForm(id){
+  const editing = id !== null;
+  const lesson = editing ? localLessons.find(l=>l.id === id) : { title:'', badge: currentLessonType==='theory' ? 'درس نظري' : 'تطبيق', pdfUrl:'' };
   openForm({
     title: editing ? 'تعديل الدرس' : 'إضافة درس جديد',
-    sub: `سيُضاف هذا الدرس إلى تصنيف: ${currentLessonType==='theory' ? 'دروس نظرية' : 'دروس تطبيقية'}. رابط PDF اختياري — إن أُدخل، يفتح عند الضغط على "عرض الدرس".`,
     fields: [
       { key:'title', label:'عنوان الدرس', value:lesson.title, placeholder:'مثال: أحكام الراء' },
       { key:'badge', label:'تصنيف البطاقة', type:'select', options:['درس نظري','تطبيق'], value:lesson.badge },
-      { key:'pdfUrl', label:'رابط ملف PDF (اختياري)', type:'url', value:lesson.pdfUrl||'', placeholder:'https://drive.google.com/...' }
+      { key:'pdfUrl', label:'رابط ملف PDF (اختياري)', type:'url', value:lesson.pdfUrl, placeholder:'https://drive.google.com/...' }
     ],
-    confirmLabel: editing ? 'حفظ التعديل' : 'إضافة',
-    onSubmit: ()=>{
+    onSubmit: async ()=>{
       const title = document.getElementById('f_title').value.trim();
       const badge = document.getElementById('f_badge').value;
       const pdfUrl = document.getElementById('f_pdfUrl').value.trim();
-      if(!title) return toast('الرجاء كتابة عنوان الدرس');
-      const obj = { title, badge, pdfUrl };
-      if(editing) DATA.lessons[currentLessonType][idx] = obj; else DATA.lessons[currentLessonType].push(obj);
-      saveData(DATA); renderLessons(); formModal.classList.remove('show');
-      toast(editing ? 'تم تعديل الدرس' : 'تمت إضافة الدرس');
+      if(!title) return toast('عنوان الدرس مطلوب');
+      let data = { title, badge, pdfUrl, type: badge === 'درس نظري' ? 'theory' : 'practice' };
+      if(editing) await setDoc(doc(db, "lessons", id), data); else await addDoc(collection(db, "lessons"), data);
+      formModal.classList.remove('show'); toast('تم حفظ الدرس');
     }
   });
 }
 
-/* =========================================================
-   FORMS: Faedah
-   ========================================================= */
-function openFaedahForm(idx){
-  const editing = idx !== null;
-  const item = editing ? DATA.faedah[idx] : { tag: DATA.faedahTags[0], text:'' };
+// فورام الفوائد
+function openFaedahForm(id){
+  const editing = id !== null;
+  const item = editing ? localFaedah.find(f=>f.id === id) : { tag: faedahTags[0], text:'' };
   openForm({
     title: editing ? 'تعديل الفائدة' : 'إضافة فائدة علمية',
     fields: [
-      { key:'tag', label:'التصنيف', type:'select', options:DATA.faedahTags, value:item.tag },
+      { key:'tag', label:'التصنيف', type:'select', options:faedahTags, value:item.tag },
       { key:'text', label:'نص الفائدة', type:'textarea', value:item.text }
     ],
-    confirmLabel: editing ? 'حفظ التعديل' : 'إضافة',
-    onSubmit: ()=>{
+    onSubmit: async ()=>{
       const tag = document.getElementById('f_tag').value;
       const text = document.getElementById('f_text').value.trim();
-      if(!text) return toast('الرجاء كتابة نص الفائدة');
-      const obj = { tag, text };
-      if(editing) DATA.faedah[idx] = obj; else DATA.faedah.push(obj);
-      saveData(DATA); renderFaedah(); formModal.classList.remove('show');
-      toast(editing ? 'تم تعديل الفائدة' : 'تمت إضافة الفائدة');
+      if(!text) return toast('نص الفائدة مطلوب');
+      let data = { tag, text };
+      if(editing) await setDoc(doc(db, "faedah", id), data); else await addDoc(collection(db, "faedah"), data);
+      formModal.classList.remove('show'); toast('تم حفظ الفائدة بنجاح');
     }
   });
 }
 
 /* =========================================================
-   INIT
+   INITIALIZATION
    ========================================================= */
-function renderAll(){
-  renderSurahs(document.getElementById('ayahSearch').value);
-  renderRules();
-  renderIntro();
-  renderLessons(currentLessonType);
-  renderFaedahFilters();
-  renderFaedah();
-  updateLockUI();
-}
-renderAll();
+renderFaedahFilters();
+updateLockUI();
 
-/* =========================================================
-   SPLASH / WELCOME SCREEN
-   ========================================================= */
+// إغلاق الشاشة الترحيبية تلقائياً
 (function initSplash(){
   const splash = document.getElementById('splashScreen');
   let dismissed = false;
   function dismiss(){
-    if(dismissed) return;
-    dismissed = true;
-    splash.classList.add('hide');
-    setTimeout(()=> splash.remove(), 800);
+    if(dismissed) return; dismissed = true;
+    splash.classList.add('hide'); setTimeout(()=> splash.remove(), 800);
   }
   document.getElementById('splashSkip').addEventListener('click', dismiss);
+  setTimeout(dismiss, 4500); // إغلاق تلقائي بعد انتهاء مؤشر شريط التقدم
 })();
-</script>
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجري الإلكتروني</title>
-</head>
-<body>
-
-    <h1>مرحباً بك في موقعي</h1>
-    <button id="addBtn">إضافة منتج لتجربة Firestore</button>
-
-    <script type="module">
-        // 1. استيراد المكتبات الجاهزة من سيرفرات غوغل (CDN)
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        // 2. إعدادات مشروعك (انسخها من لوحة تحكم Firebase ونظفها هنا)
-        const firebaseConfig = {
-            apiKey: "AIzaSy...",
-            authDomain: "your-app.firebaseapp.com",
-            projectId: "your-app",
-            storageBucket: "your-app.appspot.com",
-            messagingSenderId: "123456789",
-            appId: "1:123456:web:abc123xyz"
-        };
-
-        // 3. تهيئة التطبيق وقاعدة البيانات
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // 4. دالة تجريبية لإضافة بيانات عند الضغط على الزر
-        document.getElementById('addBtn').addEventListener('click', async () => {
-            try {
-                const docRef = await addDoc(collection(db, "products"), {
-                    name: "قميص صيفي",
-                    price: 29.99,
-                    stock: 50
-                });
-                alert("تم الاتصال بنجاح وإضافة المنتج بمعرف: " + docRef.id);
-            } catch (error) {
-                console.error("حدث خطأ أثناء الإضافة: ", error);
-                alert("فشل الاتصال، تحقق من الكونسول!");
-            }
-        });
-    </script>
-</body>
-</html>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDHhQsRa7gXQlY89kohAUTlaKnJ0RHqJZs",
-    authDomain: "kabtinimad-22aea.firebaseapp.com",
-    projectId: "kabtinimad-22aea",
-    storageBucket: "kabtinimad-22aea.firebasestorage.app",
-    messagingSenderId: "567192317859",
-    appId: "1:567192317859:web:5119467c3a609b818cf416",
-    measurementId: "G-RX8HHGT7H8"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 </script>
 </body>
 </html>
